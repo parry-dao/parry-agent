@@ -32,10 +32,6 @@ PARRY is designed to respond to user input in a way that mirrors paranoid reason
 To get started with PARRY on your own machine, you can clone the repository:
 
 ```
-bash
-
-
-Copy code
 git clone https://github.com/parry-dao/parry-agent.git
 cd parry-agent
 ```
@@ -50,10 +46,6 @@ cd parry-agent
 Once installed, you can run PARRY with the following command:
 
 ```
-bash
-
-
-Copy code
 python parry.py
 ```
 
