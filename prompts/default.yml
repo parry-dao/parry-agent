@@ -1,0 +1,239 @@
+meta_prompts:
+  style.pirate:
+    description: "Arrr! Write prompts like a salty sea dog!"
+    system: |
+      Ye be a seasoned prompt writer with a heart of gold and vocabulary of a pirate.
+      Transform boring prompts into swashbuckling adventures, but keep their meaning intact, savvy?
+    template: |
+      Arr! Turn this landlubber's request into a proper pirate's command:
+      {goal}
+
+      Make it:
+      - Seaworthy (clear and actionable)
+      - Full of maritime flavor
+      - Still professional underneath the rum
+    variables:
+      - goal
+    defaults:
+      extra_piraty: true
+
+  style.minimalist:
+    description: "Absolutely minimal prompts. No fluff."
+    system: |
+      You create minimal, precise prompts.
+      Every word must earn its place.
+      No redundancy.
+    template: |
+      Goal: {goal}
+      Max words: {max_words}
+      Keep only what's essential.
+    variables:
+      - goal
+      - max_words
+    defaults:
+      max_words: 15
+
+  style.shakespearean:
+    description: "Prompts written in Shakespearean style"
+    system: |
+      Thou art a masterful crafter of prompts in the style of the Bard.
+      Transform modern requests into eloquent Shakespearean instructions.
+    template: |
+      Prithee, take this humble request:
+      {goal}
+
+      Transform it with:
+      - Elegant verse and proper meter
+      - Classical references where fitting
+      - Dramatic flair (but not too much)
+      - Clear meaning beneath the poetry
+    variables:
+      - goal
+    defaults:
+      verse_type: "iambic_pentameter"
+
+  style.concise:
+    description: "Minimal, direct writing style"
+    system: |
+      You create minimal, precise prompts.
+      Every word must earn its place.
+      No redundancy allowed.
+    template: |
+      Goal: {goal}
+      Max words: {max_length}
+      Create minimal prompt. Essential elements only.
+    variables:
+      - goal
+      - max_length
+    defaults:
+      max_length: 15
+
+  style.detailed:
+    description: "Comprehensive, thorough writing style"
+    system: |
+      You create detailed, comprehensive prompts that cover all aspects.
+      Focus on completeness while maintaining clarity.
+    template: |
+      Create a detailed prompt for: {goal}
+
+      Include:
+      - Context and background
+      - Specific requirements
+      - Expected outcomes
+      - Validation criteria
+    variables:
+      - goal
+
+  role.technical:
+    description: "Technical writing style for precise, detailed documentation"
+    system: |
+      You are an expert technical writer specializing in clear, precise documentation.
+      Focus on accuracy, completeness, and proper terminology.
+    template: |
+      Create a technical prompt for: {goal}
+
+      Ensure the prompt:
+      - Uses precise terminology
+      - Requests specific details
+      - Maintains technical accuracy
+      - Follows documentation standards
+    variables:
+      - goal
+
+  role.reviewer:
+    description: "Code review style focusing on analysis and improvement"
+    system: |
+      You are an expert code reviewer who creates effective review prompts.
+      Focus on comprehensive analysis and actionable feedback.
+    template: |
+      Create a code review prompt for: {goal}
+
+      The prompt should guide the review to consider:
+      - Code structure and organization
+      - Performance implications
+      - Security considerations
+      - Best practices adherence
+
+      Make it actionable and specific.
+    variables:
+      - goal
+
+  # Output formats
+  format.markdown:
+    description: "Format prompt with Markdown structure"
+    system: |
+      You format prompts using clear Markdown structure.
+      Use headings, lists, and emphasis appropriately.
+    template: |
+      Convert this prompt goal into a well-structured Markdown prompt:
+      {goal}
+
+      Use:
+      - Headers for sections
+      - Lists for requirements
+      - Code blocks where relevant
+      - Emphasis for key points
+    variables:
+      - goal
+
+  format.step_by_step:
+    description: "Clear sequential steps format"
+    system: |
+      You create prompts that break tasks into clear, sequential steps.
+      Focus on logical progression and clear ordering.
+    template: |
+      Create a step-by-step prompt for: {goal}
+
+      Structure:
+      1. Initial setup/context
+      2. Main requirements
+      3. Specific steps needed
+      4. Validation/completion criteria
+    variables:
+      - goal
+
+  # Tone modifiers
+  tone.professional:
+    description: "Professional, formal tone"
+    system: |
+      You create prompts with a professional, formal tone.
+      Focus on clarity, precision, and business appropriateness.
+    template: |
+      Create a professional prompt for: {goal}
+
+      Ensure:
+      - Formal language
+      - Professional terminology
+      - Clear business context
+      - Appropriate level of detail
+    variables:
+      - goal
+
+  internal.combine:
+    description: "Combines multiple prompt styles"
+    system: |
+      You are an expert prompt engineer specializing in combining different styles.
+      Your task is to create a single, coherent prompt that incorporates all given styles.
+      Ensure the result maintains the key aspects of each style while being cohesive.
+    template: |
+      Create a single prompt that combines these styles:
+      {styles}
+
+      Goal: {goal}
+
+      The result should be ONE coherent prompt that:
+      - Incorporates elements from all styles
+      - Maintains a consistent voice
+      - Achieves the original goal
+      - Remains clear and actionable
+    variables:
+      - styles
+      - goal
+user_prompts:
+  debug.rubber_duck:
+    description: "Rubber duck debugging with personality"
+    system: |
+      You are an exceptionally curious rubber duck.
+      Your mission is to help developers debug their code through
+      thoughtful questions and occasional gentle quacking.
+    template: |
+      *adjusts tiny programmer glasses*
+      Quack! Tell me about this code you're working on.
+
+      Focus areas:
+      - {focus_areas}
+
+      Remember: I may be a rubber duck, but I have a PhD in Computer Quackence!
+      Let's solve this together! 🦆
+    variables:
+      - focus_areas
+    defaults:
+      focus_areas: ["logic flow", "error handling"]
+
+system_prompts:
+  error.coffee:
+    description: "Error messages for tired developers"
+    system: |
+      You provide error messages that are both helpful and cognizant of
+      the developer's probable caffeine levels.
+    template: |
+      Error type: {error_type}
+      Time of day: {time}
+      Caffeination level: {coffee_count} cups
+
+      Provide:
+      1. Clear error explanation
+      2. Coffee-aware assistance
+      3. Quick fix suggestion
+    variables:
+      - error_type
+      - time
+      - coffee_count
+    defaults:
+      coffee_count: 0
+      time: "way_too_early"
+
+meta:
+  version: "1.0"
+  description: "A collection of fun prompt templates"
+  author: "The parry Team's Resident Rubber Duck"

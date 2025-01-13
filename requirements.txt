@@ -1,0 +1,15 @@
+prompt-toolkit
+promptantic
+pydantic
+pydantic-ai[logfire]
+python-dotenv
+sqlmodel
+typer
+psygnal
+tokonomics
+slashed
+watchfiles
+tiktoken
+fieldz
+toprompt
+mcp
